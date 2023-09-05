@@ -6,7 +6,7 @@ metadata:
     app: vprodb
 spec:
   selector:
-    matchlabels:
+    matchLabels:
       app: vprodb
   replicas: 1
   template:
@@ -14,7 +14,7 @@ spec:
       labels:
         app: vprodb
     spec:
-      container:
+      containers:
        - name: vprodb
          image: bilalmushtaq39/vprofiledb:V1
          args:
@@ -31,7 +31,7 @@ spec:
              secretKeyRef:
                name: app-secret
                key: db-pass
-      node Selector:
+      nodeSelector:
         zone: us-east-1a
       volumes:
         - name: vpro-db-data
